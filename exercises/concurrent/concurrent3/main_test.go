@@ -30,7 +30,6 @@ func sendAndReceive(buf *bytes.Buffer, messages chan string) {
 		close(messages)
 	}()
 
-	// greeting := <-messages
 	first := true
 	for msg := range messages {
 		// If we're not on the first msg, prepend a space to each msg in the range
@@ -40,8 +39,4 @@ func sendAndReceive(buf *bytes.Buffer, messages chan string) {
 		fmt.Fprint(buf, msg)
 		first = false
 	}
-
-	// Here we just receive the first message
-	// Consider using a for-range loop to iterate over the messages
-
 }
